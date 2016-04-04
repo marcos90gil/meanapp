@@ -1,6 +1,6 @@
 # MEANAPP
 
-API REST básica con el paquete MEAN
+:part_alternation_mark: Basic API REST developed with the MEANJS stack
 * MongoDB
 * Express
 * AngularJS
@@ -10,4 +10,4 @@ API REST básica con el paquete MEAN
 
 ### V.0.1.0 - 2016-04-04
 
-* Inicialización del proyecto con la estructura básica de una app express
+* First steps to initialize the app
