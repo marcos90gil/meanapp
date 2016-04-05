@@ -1,6 +1,9 @@
 {
   "name": "meanapp",
   "version": "0.1.0",
+  "homepage": "https://github.com/marcos90gil/meanapp",
+  "authors": "Marcos Gil <marcos_gilf@hotmail.com>",
+  "description": "Basic API REST developed with the MEANJS stack",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
@@ -14,6 +17,11 @@
     "express": "~4.13.1",
     "mongoose": "^4.4.11",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0"
   }
 }
