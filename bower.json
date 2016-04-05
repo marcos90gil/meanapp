@@ -1,6 +1,6 @@
 {
     "name": "meanapp",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "homepage": "https://github.com/marcos90gil/meanapp",
     "authors": "Marcos Gil <marcos_gilf@hotmail.com>",
     "description": "Basic API REST developed with the MEANJS stack",
