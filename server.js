@@ -13,12 +13,12 @@ let db = require('./config/connectMongoose.js');
 
 // api v1 routes
 let apiUsers = require('./routes/api/v1/users.js');
+let apiTextItems = require('./routes/api/v1/textItems.js');
 
 // express app
 let app = express();
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // urls generation api v1
 app.use('/apiv1/users', apiUsers);
+app.use('/apiv1/textItems', apiTextItems);
 app.get('*', function(req, res) {
     res.sendfile('../../../public/index.htmls');
 });

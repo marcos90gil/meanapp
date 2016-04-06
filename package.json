@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "initDB": "node ./config/initDB.js"
+    "initDB-users": "node ./config/initDB-users.js",
+    "initDB-items": "node ./config/initDB-items.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

@@ -25,15 +25,16 @@ User.remove(function(err) {
             
             let user = new User(pack.users[i]);
             
-            user.save(function(err, newRow) {
+            user.save(function(err, row) {
                 if (err) {
                     return console.log('ERROR', err);
                 }
-                console.log('user db init completed');
-                return process.exit();              
+                return;              
             });
 
         }
+        
+        console.log('user db init completed');
 
     });
 
