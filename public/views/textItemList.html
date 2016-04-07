@@ -1,7 +1,14 @@
-<div class="container">
-	<div class="row">
-		<div ng-repeat="item in model">
-			<h3>{{::item.title}}</h3>
-		</div>
-	</div>
-</div>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>
+				<input type="search" ng-model="query.title" placeholder="Search..." class="form-control">
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in model | filter:query">
+			<td>{{::item.title}}</td>
+		</tr>
+	</tbody>
+</table>
