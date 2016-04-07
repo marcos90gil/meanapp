@@ -8,8 +8,12 @@ let ObjectId = Schema.ObjectId;
 let TextItemSchema = new Schema({
 	title: String,
 	body: String,
-	type: String,
-	user_id: {type: ObjectId, ref: 'User'}
+	type: {
+		type: String,
+        enum : ['todo', 'bottle', 'thing']
+    },
+	upload_date: String,
+	author: String
 });
 
 module.exports = mongoose.model('TextItem', TextItemSchema);

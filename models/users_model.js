@@ -14,7 +14,8 @@ let UserSchema = new Schema({
 		}
 	},
 	email: String,
-	password: String
+	password: String,
+	upload_date: String
 });
 
 module.exports = mongoose.model('User', UserSchema);

@@ -1,7 +1,7 @@
 'use strict';
 
 // models
-let TextItem = require('../models/textItem_model.js');
+let TextItem = require('../models/textItems_model.js');
 // files library
 let fs = require('fs');
 

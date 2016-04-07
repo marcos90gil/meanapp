@@ -4,55 +4,63 @@
 			"title": "Buy bread",
 			"body": null,
 			"type": "todo",
-			"user_id": "5704bf5b86c1e4801a4ec5d5"	
+			"upload_date": "2016-04-07 13:04:20",
+			"author": "admin"	
 		},
 		{
 			"title": "Make my bed",
 			"body": null,
 			"type": "todo",
-			"user_id": "5704bf5b86c1e4801a4ec5d5"	
+			"upload_date": "2016-04-07 13:04:20",
+			"author": "admin"	
 		},
 		{
 			"title": "Work on my TFG",
 			"body": null,
 			"type": "todo",
-			"user_id": "5704bf5b86c1e4801a4ec5d6"
+			"upload_date": "2016-04-07 13:04:20",
+			"author": "marcos"
 		},
 		{
 			"title": "Scored three goals on the match",
 			"body": null,
 			"type": "bottle",
-			"user_id": "5704bf5b86c1e4801a4ec5d6"
+			"upload_date": "2016-04-07 13:04:20",
+			"author": "marcos"
 		},
 		{
 			"title": "The bus driver waited for me",
 			"body": null,
 			"type": "bottle",
-			"user_id": "5704bf5b86c1e4801a4ec5d5"
+			"upload_date": "2016-04-07 13:04:20",
+			"author": "marcos"
 		},
 		{
 			"title": "Run code without errors at the first try",
 			"body": null,
 			"type": "bottle",
-			"user_id": "5704bf5b86c1e4801a4ec5d5"
+			"upload_date": "2016-04-07 13:04:20",
+			"author": "admin"
 		},
 		{
 			"title": "TFG final delivery date",
 			"body": null,
 			"type": "thing",
-			"user_id": "5704bf5b86c1e4801a4ec5d6"
+			"upload_date": "2016-04-07 13:04:20",
+			"author": "admin"
 		},
 		{
 			"title": "Go or not go to the gym",
 			"body": null,
-			"type": "thing",
-			"user_id": "5704bf5b86c1e4801a4ec5d5"
+			"upload_date": "2016-04-07 13:04:20",
+			"author": "admin"
 		},
 		{
 			"title": "Help more at home",
 			"body": null,
 			"type": "thing",
-			"user_id": "5704bf5b86c1e4801a4ec5d5"
+			"upload_date": "2016-04-07 13:04:20",
+			"author": "marcos"
 		}
 	]
 }

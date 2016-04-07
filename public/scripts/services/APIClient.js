@@ -1,27 +1,11 @@
 angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filter', '$log', 'apiPaths', 'URL',
     function($window, $http, $q, $filter, $log, apiPaths, URL) {
 
-        // User logic
-        this.saveUser = function(user) {
-            $log.log("Estoy en APIClient accediendo a saveUser con el name", user.username);
-            $window.localStorage.setItem("username", user.username);
-        };
-
-        this.takeUser = function() {
-            var user = $window.localStorage.getItem("username");
-            $log.log("Estoy en APIClient accediendo a takeUser:", user);
-            return user;
-        };
-
-        this.clearUser = function() {
-            $window.localStorage.setItem("username", "");
-        };
-
         // Server requests
         this.getRequest = function(url) {
 
             // deferred object creation
-            var deferred = $q.defer();
+            let deferred = $q.defer();
 
             // async work
             $http
@@ -47,7 +31,7 @@ angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filte
         this.postRequest = function(url, item) {
 
             // deferred object creation
-            var deferred = $q.defer();
+            let deferred = $q.defer();
 
             // async work
             $http
@@ -79,7 +63,7 @@ angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filte
 
         this.getUser = function(id) {
 
-            var url = URL.resolve(apiPaths.user, { id: id });
+            let url = URL.resolve(apiPaths.user, { id: id });
             return this.getRequest(url);
 
         };
@@ -91,14 +75,30 @@ angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filte
         };
 
         // text items request
-        this.getTextItems = function() {
-            return this.getRequest(apiPaths.textItems);
-
+        // this method get the items in function of its type (todo, bottle or thing)
+        this.getTextItems = function(type) {
+            return this.getRequest(apiPaths.textItems).then(
+                function(data) {
+                    let items = data.data || [];
+                    let itemsType = [];
+                    if (items.length === 0) {
+                        return itemsType;
+                    } else {
+                        for (let i in items) {
+                            let item = items[i];
+                            if (item.type === type) {
+                                itemsType.push(item);
+                            }
+                        }
+                        return itemsType;
+                    }
+                }
+            );
         };
 
         this.getTextItem = function(id) {
 
-            var url = URL.resolve(apiPaths.textItem, { id: id });
+            let url = URL.resolve(apiPaths.textItem, { id: id });
             return this.getRequest(url);
 
         };
