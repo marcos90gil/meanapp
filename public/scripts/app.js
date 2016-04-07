@@ -1,4 +1,4 @@
-angular.module('meanapp', ['ngRoute', 'ngSanitize', 'URL']).config(
+angular.module('meanapp', ['ngRoute', 'ngSanitize', 'URL', 'angularMoment']).config(
 	['$routeProvider', 'paths', function($routeProvider, paths) {
 	
 		$routeProvider.when(paths.url.home, {

@@ -13,10 +13,12 @@ module.exports = function (grunt) {
             },
             app: {
                 src: [
+                    'public/libs/jquery/dist/jquery.min.js',
                     'public/libs/angular/angular.min.js',
                     'public/libs/angular-route/angular-route.min.js',
                     'public/libs/angular-sanitize/angular-sanitize.min.js',
                     'public/libs/moment/moment.js',
+                    'public/libs/angular-moment/angular-moment.min.js',
                     'public/libs/bootstrap/js/collapse.js',
                     'public/scripts/**/*.js',
                     'public/scripts/*.js'

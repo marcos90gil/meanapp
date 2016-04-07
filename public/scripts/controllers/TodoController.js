@@ -1,6 +1,6 @@
 angular.module('meanapp').controller('TodoController',
-	['$scope', '$log', 'APIClient', 'URL', 'paths',
-	function($scope, $log, APIClient, URL, paths){
+	['$scope', '$log', '$filter', 'APIClient', 'URL', 'paths',
+	function($scope, $log, $filter, APIClient, URL, paths){
 
 		// scope model init
 		$scope.model= [];
@@ -23,11 +23,16 @@ angular.module('meanapp').controller('TodoController',
 		);
 
         // add item
-        $scope.saveItem = function(item) {
-
-            APIClient.createTextItem(item).then(
+        $scope.saveItem = function() {
+            var itemNew = {};
+            itemNew.title = $scope.model.title;
+            itemNew.body = $scope.model.body;
+            itemNew.upload_date = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+            itemNew.type = 'todo';
+            console.log('New Item:', itemNew);
+            APIClient.createTextItem(itemNew).then(
                 function(item) {
-                    $scope.model.push(item);
+                    //$scope.model.push(item);
                     $scope.itemForm.$setPristine();
                 },
                 function(error) {
