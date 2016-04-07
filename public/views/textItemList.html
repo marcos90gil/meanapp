@@ -8,7 +8,12 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="item in model | filter:query">
-			<td>{{::item.title}}</td>
+			<td>
+				{{::item.title}}
+				<span class="label label-default">
+					{{::item.upload_date | ago}}
+				</span>
+			</td>
 		</tr>
 	</tbody>
 </table>
