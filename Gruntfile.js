@@ -17,6 +17,7 @@ module.exports = function (grunt) {
                     'public/libs/angular-route/angular-route.min.js',
                     'public/libs/angular-sanitize/angular-sanitize.min.js',
                     'public/libs/moment/moment.js',
+                    'public/libs/bootstrap/js/collapse.js',
                     'public/scripts/**/*.js',
                     'public/scripts/*.js'
                 ],

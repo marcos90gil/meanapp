@@ -3,6 +3,29 @@
 	<br>
 	<h1>To-Do</h1>
 	
+	<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  		Link with href
+	</a>
+	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		Button with data-target
+	</button>
+	<div class="collapse" id="collapseExample">
+  		<div class="well">
+    		...
+  		</div>
+	</div>
+
+	<form name="itemForm" class="form-horizontal" ng-submit="saveItem()" novalidate>
+		<div class="form-group" ng-class="{ 'has-success': itemForm.title.$valid, 'has-error': itemForm.title.$invalid }">
+			<div class="col-sm-12">
+				<input type="text" name="title" placeholder="title" ng-model="model.title" class="form-control" required>
+				<div class="text-danger" ng-show="itemForm.title.$dirty && itemForm.title.$error.required">
+					The title is required
+				</div>
+			</div>
+		</div>
+	</form>
+
 	<div class="jumbotron" ng-show="uiState=='blank'">
 		<p class="lead">No data here</p>
 	</div>

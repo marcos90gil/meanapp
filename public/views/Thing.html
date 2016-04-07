@@ -1,1 +1,16 @@
-<h1>Thing</h1>
+<div ng-controller="ThingController">
+	<h1>Thing</h1>
+	
+	<div class="jumbotron" ng-show="uiState=='blank'">
+		<p class="lead">No data here</p>
+	</div>
+	
+	<div class="alert alert-danger" ng-show="uiState=='error'">
+		Error while loading data
+	</div>
+
+	<div ng-include="'views/ProgressBar.html'" ng-show="uiState=='loading'"></div>
+
+	<text-item-list items="model" ng-show="uiState=='ideal'"></text-item-list>
+
+</div>
