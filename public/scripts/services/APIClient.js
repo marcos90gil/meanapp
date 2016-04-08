@@ -54,24 +54,85 @@ angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filte
         
         };
 
+        this.putRequest = function(url, item) {
+
+            // deferred object creation
+            let deferred = $q.defer();
+
+            // async work
+            $http
+                .put(url, item)
+                .then(
+                    // ok request
+                    function(response) {
+                        // promise resolve
+                        deferred.resolve(response.data);
+                    },
+                    // KO request
+                    function(response) {
+                        // promise reject
+                        deferred.reject(response.data);
+                    }
+                );
+
+            // return promise
+            return deferred.promise;
+        
+        };
+
+        this.deleteRequest = function(url) {
+
+            // deferred object creation
+            let deferred = $q.defer();
+
+            // async work
+            $http
+                .delete(url)
+                .then(
+                    // ok request
+                    function(response) {
+                        // promise resolve
+                        deferred.resolve(response.data);
+                    },
+                    // KO request
+                    function(response) {
+                        // promise reject
+                        deferred.reject(response.data);
+                    }
+                );
+
+            // return promise
+            return deferred.promise;
+        
+        };
+
         // User requests
         this.getUsers = function() {
 
             return this.getRequest(apiPaths.users);
-
         };
 
         this.getUser = function(id) {
 
             let url = URL.resolve(apiPaths.user, { id: id });
             return this.getRequest(url);
-
         };
 
         this.createUser = function(user) {
             
             return this.postRequest(apiPaths.users, user);
+        };
 
+        this.editUser = function(id, newUser) {
+
+            let url = URL.resolve(apiPaths.user, { id: id });
+            return this.deleteRequest(url, newUser);
+        };
+
+        this.deleteUser = function(id) {
+
+            let url = URL.resolve(apiPaths.user, { id: id });
+            return this.deleteRequest(url);
         };
 
         // text items request
@@ -100,14 +161,18 @@ angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filte
 
             let url = URL.resolve(apiPaths.textItem, { id: id });
             return this.getRequest(url);
-
         };
 
         this.createTextItem = function(textItem) {
             
             return this.postRequest(apiPaths.textItems, textItem);
-
         };
+
+        this.deleteTextItem = function(id) {
+
+            let url = URL.resolve(apiPaths.textItem, { id: id });
+            return this.deleteRequest(url);
+        }
 
     }
 ]);

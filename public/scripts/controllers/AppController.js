@@ -5,8 +5,6 @@ angular.module('meanapp').controller('AppController', ['$scope', '$location', 'p
     controller.titles = {};
     controller.titles[paths.url.home] = paths.titles.home;
     controller.titles[paths.url.todo] = paths.titles.todo;
-    controller.titles[paths.url.bottle] = paths.titles.bottle;
-    controller.titles[paths.url.thing] = paths.titles.thing;
 
     //Scope init
     $scope.model = {

@@ -1,39 +1,26 @@
-<nav class="navbar navbar-default" ng-controller="MenuController">
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="MenuController">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <i class="glyphicon glyphicon-sunglasses"></i>
-            </button>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false">
-                <i class="glyphicon glyphicon-pencil"></i>
-            </button>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false">
-                <i class="glyphicon glyphicon-baby-formula"></i>
-            </button>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapseMenu" aria-expanded="false">
-                <i class="glyphicon glyphicon-send"></i>
-            </button>
-            
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="collapseMenu">
-            <ul class="nav navbar-nav">
-                <li ng-class="getClassForItem(paths.url.home)">
-                    <a class="navbar-brand" href="#{{::paths.url.home}}">{{::paths.titles.home}}</a>
-                </li>
-                <li ng-class="getClassForItem(paths.url.todo)">
-                    <a href="#{{::paths.url.todo}}">{{::paths.titles.todo}}</a>
-                </li>
-                <li ng-class="getClassForItem(paths.url.bottle)">
-                    <a href="#{{::paths.url.bottle}}">{{::paths.titles.bottle}}</a>
-                </li>
-                <li ng-class="getClassForItem(paths.url.thing)">
-                    <a href="#{{::paths.url.thing}}">{{::paths.titles.thing}}</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+        <ul class="nav navbar-button hidden-sm hidden-md hidden-lg">
+            <li ng-class="getClassForItem(paths.url.home)">
+                <a class="btn btn-default" href="#{{::paths.url.home}}">
+                    <i class="glyphicon glyphicon-sunglasses"></i>
+                </a>
+            </li>
+            <li ng-class="getClassForItem(paths.url.todo)">
+                <a class="btn btn-default" href="#{{::paths.url.todo}}">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+            </li>
+        </ul>
+        
+        <ul class="nav navbar-nav hidden-xs">
+            <li ng-class="getClassForItem(paths.url.home)">
+                <a href="#{{::paths.url.home}}">{{::paths.titles.home}}</a>
+            </li>
+            <li ng-class="getClassForItem(paths.url.todo)">
+                <a href="#{{::paths.url.todo}}">{{::paths.titles.todo}}</a>
+            </li>
+        </ul>
+
     </div>
-    <!-- /.container-fluid -->
 </nav>

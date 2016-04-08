@@ -1,29 +1,5 @@
 <div ng-controller="TodoController">
-	<div class="container">
-		<h1 class="title">TO-DO</h1>
-		<a class="btn btn-primary addItem" role="button" data-toggle="collapse" data-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
-			<i class="glyphicon glyphicon-plus"></i>
-		</a>
-	</div>
 	
-	<div class="collapse" id="collapseForm">
-		<form name="itemForm" class="form-horizontal" ng-submit="saveItem()" novalidate>
-			<div class="form-group" ng-class="{ 'has-success': itemForm.title.$valid, 'has-error': itemForm.title.$invalid }">
-				<div class="col-sm-12">
-					<input type="text" name="title" placeholder="Title" ng-model="model.title" class="form-control" required>
-					<div class="text-danger" ng-show="itemForm.title.$dirty && itemForm.title.$error.required">
-						The title is required
-					</div>
-				</div>
-			</div>
-			<div class="form-group" ng-class="{ 'has-success': itemForm.body.$dirty && itemForm.body.$valid, 'has-error': itemForm.body.$invalid }">
-			<div class="col-sm-10">
-				<textarea type="text" name="body" placeholder="Description (optional)" ng-model="model.body" class="form-control" rows="5"></textarea>
-			</div>
-		</div>
-		</form>
-	</div>
-
 	<div class="jumbotron" ng-show="uiState=='blank'">
 		<p class="lead">No data here</p>
 	</div>
@@ -34,6 +10,16 @@
 
 	<div ng-include="'views/ProgressBar.html'" ng-show="uiState=='loading'"></div>
 
-	<text-item-list items="model" ng-show="uiState=='ideal'"></text-item-list>
+	<div class="container">
+		<h1 class="title">TO-DO</h1>
+		<a class="btn btn-primary addItem" role="button" data-toggle="collapse" data-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
+			<i class="glyphicon glyphicon-plus"></i>
+		</a>
+	</div>
+	
+	<text-item-add model="model" save-item="saveItem(stuff)" class="collapse" id="collapseForm"></text-item-add>
+
+
+	<text-item-list items="model" delete-item="deleteItem(itemId)" ng-show="uiState=='ideal'"></text-item-list>
 
 </div>
