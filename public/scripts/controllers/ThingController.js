@@ -1,6 +1,6 @@
 angular.module('meanapp').controller('ThingController', 
-	['$scope', '$log', 'APIClient', 'URL', 'paths', 
-	function($scope, $log, APIClient, URL, paths){
+	['$scope', '$log', '$filter', 'APIClient', 'URL', 'paths', 
+	function($scope, $log, $filter, APIClient, URL, paths){
 
 		// scope model init
 		$scope.model= [];
@@ -23,17 +23,16 @@ angular.module('meanapp').controller('ThingController',
 		);
 
         // add item
-        $scope.saveItem = function() {
+        $scope.saveItem = function(model) {
             var itemNew = {};
-            itemNew.title = $scope.model.title;
-            itemNew.body = $scope.model.body;
+            itemNew.title = model.title;
+            itemNew.body = model.body;
             itemNew.upload_date = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
             itemNew.type = 'thing';
             console.log('New Item:', itemNew);
             APIClient.createTextItem(itemNew).then(
                 function(item) {
-                    //$scope.model.push(item);
-                    $scope.itemForm.$setPristine();
+                    console.log('Item added');
                 },
                 function(error) {
                     console.log('An error occurred', error);

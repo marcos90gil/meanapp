@@ -23,21 +23,40 @@ angular.module('meanapp').controller('TodoController',
 		);
 
         // add item
-        $scope.saveItem = function() {
+        $scope.saveItem = function(model) {
+            
             var itemNew = {};
-            itemNew.title = $scope.model.title;
-            itemNew.body = $scope.model.body;
+            
+            itemNew.title = model.title;
+            itemNew.body = model.body;
             itemNew.upload_date = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
             itemNew.type = 'todo';
-            console.log('New Item:', itemNew);
+            
             APIClient.createTextItem(itemNew).then(
                 function(item) {
-                    //$scope.model.push(item);
-                    $scope.itemForm.$setPristine();
+                    $scope.model.push(itemNew);
+                    console.log('Item added');
                 },
                 function(error) {
                     console.log('An error occurred', error);
                 }
+            );
+        };
+
+        $scope.deleteItem = function(id) {
+
+            APIClient.deleteTextItem(id).then(
+                function() {
+                    console.log('Item deleted');
+                    for (let index=0; index < $scope.model.length; index++) {
+                        if ($scope.model[index]['_id'] === id) {
+                            $scope.model.splice(index, 1);
+                        }   
+                    }
+                },
+                function(error) {
+                    console.log('An error occurred while deleting item', error);
+                }    
             );
         };
 	

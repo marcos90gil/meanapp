@@ -1,9 +1,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>
-				<input type="search" ng-model="query.title" placeholder="Search..." class="form-control">
-			</th>
+			<input type="search" ng-model="query.title" placeholder="Search..." class="form-control text-items-search">
 		</tr>
 	</thead>
 	<tbody>
@@ -13,6 +11,9 @@
 				<span class="label label-default">
 					{{::item.upload_date | ago}}
 				</span>
+			</td>
+			<td class="table-right-element">
+				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger">Delete</button>
 			</td>
 		</tr>
 	</tbody>

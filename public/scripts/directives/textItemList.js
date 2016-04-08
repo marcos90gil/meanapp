@@ -4,6 +4,7 @@ angular.module('meanapp').directive('textItemList',
 			restrict: 'AE',
 			scope: {
 				model: '=items',
+				deleteItem: '&',
 				dateMode: '@'
 			},
 			templateUrl: 'views/textItemList.html'
