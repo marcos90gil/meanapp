@@ -13,7 +13,22 @@
 				</span>
 			</td>
 			<td class="table-right-element">
-				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger">Delete</button>
+				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-success hidden-sm hidden-md hidden-lg">
+					<i class="glyphicon glyphicon-ok"></i>
+				</button>
+				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-success hidden-xs">
+					Done
+					<i class="glyphicon glyphicon-ok"></i>
+				</button>
+			</td>
+			<td class="table-right-element">
+				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger hidden-sm hidden-md hidden-lg">
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger hidden-xs">
+					Delete
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
 			</td>
 		</tr>
 	</tbody>
