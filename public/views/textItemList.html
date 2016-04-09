@@ -6,14 +6,14 @@
 	</thead>
 	<tbody>
 		<tr ng-repeat="item in model | filter:query">
-			<td>
+			<td class="col-xs-10">
 				{{::item.title}}
 				<span class="label label-default">
 					{{::item.upload_date | ago}}
 				</span>
 			</td>
-			<td class="table-right-element">
-				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-success hidden-sm hidden-md hidden-lg">
+			<td class="table-right-element col-xs-1">
+				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-success btn-sm hidden-sm hidden-md hidden-lg">
 					<i class="glyphicon glyphicon-ok"></i>
 				</button>
 				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-success hidden-xs">
@@ -21,8 +21,8 @@
 					<i class="glyphicon glyphicon-ok"></i>
 				</button>
 			</td>
-			<td class="table-right-element">
-				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger hidden-sm hidden-md hidden-lg">
+			<td class="table-right-element col-xs-1">
+				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger btn-sm hidden-sm hidden-md hidden-lg">
 					<i class="glyphicon glyphicon-trash"></i>
 				</button>
 				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger hidden-xs">
