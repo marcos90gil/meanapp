@@ -3,11 +3,17 @@ angular.module('meanapp').directive('textItemList',
 		return {
 			restrict: 'AE',
 			scope: {
-				model: '=items',
+				model: '=',
+				deleteAll: '&',
 				deleteItem: '&',
 				dateMode: '@'
 			},
-			templateUrl: 'views/textItemList.html'
-		};
+			templateUrl: 'views/textItemList.html',
+			link: function (scope) {
+            	scope.changeItemState = function () {
+        			scope.itemState = 'done';
+				};
+			}
+		};	
 	}
 );

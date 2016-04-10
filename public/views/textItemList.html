@@ -1,19 +1,60 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<input type="search" ng-model="query.title" placeholder="Search..." class="form-control text-items-search">
+			<td class="col-xs-10">
+				<input type="search" ng-model="query.title" placeholder="Search..." class="form-control text-items-search">
+			</td>		
+			<td class="table-right-element col-xs-1">
+				<button ng-click="changeItemState()" type="button" class="btn btn-success btn-sm hidden-sm hidden-md hidden-lg" ng-disabled="itemState == 'done'">
+					All
+					<i class="glyphicon glyphicon-ok"></i>
+				</button>
+				<button ng-click="changeItemState()" type="button" class="btn btn-success hidden-xs" ng-disabled="itemState == 'done'">
+					All
+					<i class="glyphicon glyphicon-ok"></i>
+				</button>
+			</td>
+			<td class="table-right-element col-xs-1">
+				<button ng-click="deleteAll()" type="button" class="btn btn-danger btn-sm hidden-sm hidden-md hidden-lg">
+					All
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+				<button ng-click="deleteAll()" type="button" class="btn btn-danger hidden-xs">
+					All
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+			</td>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="item in model | filter:query">
-			<td>
-				{{::item.title}}
+		<tr ng-repeat="model in model | filter:query">
+			<td class="col-xs-10">
+				{{::model.title}}
 				<span class="label label-default">
-					{{::item.upload_date | ago}}
+					{{::model.upload_date | ago}}
+				</span>
+
+				<span class="label label-success" ng-show="itemState == 'done'">
+					Done
 				</span>
 			</td>
-			<td class="table-right-element">
-				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger">Delete</button>
+			<td class="table-right-element col-xs-1">
+				<button ng-click="changeItemState()" type="button" class="btn btn-success btn-sm hidden-sm hidden-md hidden-lg" ng-disabled="itemState == 'done'">
+					<i class="glyphicon glyphicon-ok"></i>
+				</button>
+				<button ng-click="changeItemState()" type="button" class="btn btn-success hidden-xs" ng-disabled="itemState == 'done'">
+					Done
+					<i class="glyphicon glyphicon-ok"></i>
+				</button>
+			</td>
+			<td class="table-right-element col-xs-1">
+				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger btn-sm hidden-sm hidden-md hidden-lg">
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+				<button ng-click="deleteItem({ itemId: item._id })" type="button" class="btn btn-danger hidden-xs">
+					Delete
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
 			</td>
 		</tr>
 	</tbody>
