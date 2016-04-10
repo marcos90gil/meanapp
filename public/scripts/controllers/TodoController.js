@@ -5,6 +5,7 @@ angular.module('meanapp').controller('TodoController',
 		// scope model init
 		$scope.model= [];
 		$scope.uiState = 'loading';
+        $scope.itemState = 'todo';
 		$scope.url = URL.resolve;
 
         // controller start
@@ -43,6 +44,21 @@ angular.module('meanapp').controller('TodoController',
             );
         };
 
+        // delete all
+        $scope.deleteAll = function(id) {
+
+            APIClient.deleteAllTextItems().then(
+                function() {
+                    console.log('All items deleted');
+                    $scope.model = [];
+                },
+                function(error) {
+                    console.log('An error occurred while deleting all items', error);
+                }    
+            );
+        };
+
+        // delete item
         $scope.deleteItem = function(id) {
 
             APIClient.deleteTextItem(id).then(
@@ -59,6 +75,16 @@ angular.module('meanapp').controller('TodoController',
                 }    
             );
         };
+
+        // item states
+        // $scope.changeItemState = function() {
+        //     if ($scope.itemState === 'todo') {
+        //         $log.log('State before:', $scope.itemState, 'State after:', 'done');
+        //         $scope.itemState = 'done';    
+        //     } else {
+        //         $log.log('The task is already done', $scope.itemState);                
+        //     }
+        // }
 	
 	}]
 
