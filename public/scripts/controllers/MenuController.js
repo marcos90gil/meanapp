@@ -17,7 +17,9 @@ angular.module('meanapp').controller('MenuController',
             }
         };
 
-        $scope.logoutUser = function() {};
+        $scope.logoutUser = function() {
+            UserLogin.clearUsername();
+        };
 
         // Scope event listeners
         $scope.$on('$locationChangeSuccess', function() {

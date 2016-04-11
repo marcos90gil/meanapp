@@ -137,24 +137,8 @@ angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filte
 
         // text items request
         // this method get the items in function of its type (todo, bottle or thing)
-        this.getTextItems = function(type) {
-            return this.getRequest(apiPaths.textItems).then(
-                function(data) {
-                    let items = data.data || [];
-                    let itemsType = [];
-                    if (items.length === 0) {
-                        return itemsType;
-                    } else {
-                        for (let i in items) {
-                            let item = items[i];
-                            if (item.type === type) {
-                                itemsType.push(item);
-                            }
-                        }
-                        return itemsType;
-                    }
-                }
-            );
+        this.getTextItems = function() {
+            return this.getRequest(apiPaths.textItems);
         };
 
         this.getTextItem = function(id) {

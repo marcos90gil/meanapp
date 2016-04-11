@@ -3,6 +3,8 @@ angular.module('meanapp').controller('LoginController',
     function($scope, $window, $log, APIClient, UserLogin) {
 
         $scope.model = {};
+        // different models to singup and login to avoid problems
+        $scope.model2 = {};
         $scope.successMessage = null;
         $scope.errorMessage = null;
 
@@ -25,9 +27,9 @@ angular.module('meanapp').controller('LoginController',
             APIClient.getUsers().then(
                 function(users) {
                     for (let index=0; index < users.data.length; index++) {
-                        if (users.data[index]['username'] === $scope.model.username 
-                            && users.data[index]['password'] === $scope.model.password) {
-                            UserLogin.saveUsername($scope.model.username);
+                        if (users.data[index]['username'] === $scope.model2.username 
+                            && users.data[index]['password'] === $scope.model2.password) {
+                            UserLogin.saveUsername($scope.model2.username);
                             $window.location.href = "#/todo";
                         } 
                     }
