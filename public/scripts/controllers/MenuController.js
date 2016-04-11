@@ -1,6 +1,6 @@
 angular.module('meanapp').controller('MenuController', 
-    ["APIClient", "$window", '$scope', '$location', 'paths', 
-    function(APIClient, $window, $scope, $location, paths) {
+    ['$scope', '$window', '$location', 'UserLogin', 'paths', 
+    function($scope, $window, $location, UserLogin, paths) {
 
         // Scope init
         $scope.model = {
@@ -16,6 +16,8 @@ angular.module('meanapp').controller('MenuController',
                 return '';
             }
         };
+
+        $scope.logoutUser = function() {};
 
         // Scope event listeners
         $scope.$on('$locationChangeSuccess', function() {
