@@ -1,1 +1,44 @@
-<h1>Login</h1>
+<div class="login-box" ng-controller="LoginController">
+    <div class="container">
+        <div class="row">
+            <h3>
+            	Sign up to create an acount.
+            </h3>
+            <form name="signupForm" ng-submit="singupUser()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Email" type="email" ng-model="model.email" for="email">
+                    </div>
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Username" type="text" ng-model="model.username" for="username">
+                    </div>
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Password" type="password" ng-model="model.password" for="password">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-md">Sing up</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <h3>
+            	Have an acount? Log in.
+            </h3>
+            <form name="loginForm" ng-submit="loginUser()">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Username" type="text" ng-model="model.username" for="username">
+                    </div>
+                    <div class="input-group">
+                        <input class="form-control" placeholder="Password" type="password" ng-model="model.password" for="password">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-md">Log in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

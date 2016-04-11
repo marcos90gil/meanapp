@@ -118,15 +118,15 @@ angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filte
             return this.getRequest(url);
         };
 
-        this.createUser = function(user) {
+        this.createUser = function(newUser) {
             
-            return this.postRequest(apiPaths.users, user);
+            return this.postRequest(apiPaths.users, newUser);
         };
 
         this.editUser = function(id, newUser) {
 
             let url = URL.resolve(apiPaths.user, { id: id });
-            return this.deleteRequest(url, newUser);
+            return this.putRequest(url, newUser);
         };
 
         this.deleteUser = function(id) {
@@ -168,10 +168,22 @@ angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filte
             return this.postRequest(apiPaths.textItems, textItem);
         };
 
+        this.editTextItem = function(id, textItem) {
+
+            let url = URL.resolve(apiPaths.textItem, { id: id });
+            return this.putRequest(url, textItem);
+        };
+
         this.deleteAllTextItems = function() {
 
             return this.deleteRequest(apiPaths.textItems);
         }
+
+         this.deleteTextItem = function(id, textItem) {
+
+            let url = URL.resolve(apiPaths.textItem, { id: id });
+            return this.deleteRequest(url, textItem);
+        };
 
     }
 ]);
