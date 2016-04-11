@@ -12,6 +12,10 @@ let TextItemSchema = new Schema({
 		type: String,
         enum : ['todo', 'bottle', 'thing']
     },
+    done: {
+    	type: Boolean,
+    	default: false
+    },
 	upload_date: String,
 	author: String
 });
