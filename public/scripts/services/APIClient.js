@@ -161,12 +161,12 @@ angular.module('meanapp').service('APIClient', ["$window",'$http', '$q', '$filte
         this.deleteAllTextItems = function() {
 
             return this.deleteRequest(apiPaths.textItems);
-        }
+        };
 
-         this.deleteTextItem = function(id, textItem) {
+         this.deleteTextItem = function(id) {
 
             let url = URL.resolve(apiPaths.textItem, { id: id });
-            return this.deleteRequest(url, textItem);
+            return this.deleteRequest(url);
         };
 
     }

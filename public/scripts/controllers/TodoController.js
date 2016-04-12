@@ -60,17 +60,16 @@ angular.module('meanapp').controller('TodoController',
         };
 
         // delete all
-        $scope.deleteAll = function(id) {
-
-            APIClient.deleteAllTextItems().then(
-                function() {
-                    console.log('All items deleted');
+        $scope.deleteAll = function() {
+            console.log($scope.model);
+            for (let index = 0; index < $scope.model.length; index++) {
+                if ($scope.model[index]['author'] === UserLogin.takeUsername()) {
+                    APIClient.deleteTextItem($scope.model[index]['_id']);                   
+                }
+                if (index === ($scope.model.length - 1)) {
                     $scope.model = [];
-                },
-                function(error) {
-                    console.log('An error occurred while deleting all items', error);
-                }    
-            );
+                }
+            }
         };
 
         // delete item
@@ -100,7 +99,7 @@ angular.module('meanapp').controller('TodoController',
                         $scope.model[index]['done'] = false;
                         APIClient.editTextItem(id, $scope.model[index]).then(
                             function() {
-                                $log.log('Item edited');
+                                //$log.log('Item edited');
                             },
                             function(error) {
                                 $log.log('An error occurred while editing item', error);
@@ -110,7 +109,7 @@ angular.module('meanapp').controller('TodoController',
                         $scope.model[index]['done'] = true;
                         APIClient.editTextItem(id, $scope.model[index]).then(
                             function() {
-                                $log.log('Item edited');
+                                //$log.log('Item edited');
                             },
                             function(error) {
                                 $log.log('An error occurred while editing item', error);

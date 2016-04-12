@@ -1,6 +1,6 @@
 angular.module('meanapp').controller('AppController', 
-    ['$scope', '$location', 'UserLogin', 'paths', 
-    function($scope, $location, UserLogin, paths) {
+    ['$scope', '$window', '$location', 'UserLogin', 'paths', 
+    function($scope, $window, $location, UserLogin, paths) {
 
         var controller = this;
         // controller properties
@@ -15,6 +15,11 @@ angular.module('meanapp').controller('AppController',
 
         // scope event listeners
         $scope.$on('$locationChangeSuccess', function(evt, currentRoute) {
+            if (!UserLogin.takeUsername()) {
+                $window.location.href = '#/';
+            } else if ($location.path() === '/' && UserLogin.takeUsername()) {
+                $window.location.href = '#/todo';
+            }
             $scope.model.title = controller.titles[$location.path()] || '404 Not Found';
         });
 

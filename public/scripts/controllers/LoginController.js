@@ -9,10 +9,9 @@ angular.module('meanapp').controller('LoginController',
         $scope.errorMessage = null;
 
         $scope.singupUser = function() {
-            $log.log('singupUser()');
             APIClient.createUser($scope.model).then(
                 function(user) {
-                    $log.log('New user saved:', user);
+                    //$log.log('New user saved:', user);
                     UserLogin.saveUsername($scope.model.username);
                     $window.location.href = "#/todo";
                 },
@@ -23,16 +22,22 @@ angular.module('meanapp').controller('LoginController',
         };
 
         $scope.loginUser = function() {
-            $log.log('loginUser()');
             APIClient.getUsers().then(
                 function(users) {
                     for (let index=0; index < users.data.length; index++) {
                         if (users.data[index]['username'] === $scope.model2.username 
                             && users.data[index]['password'] === $scope.model2.password) {
+                            $scope.model2.authOk = true;
                             UserLogin.saveUsername($scope.model2.username);
                             $window.location.href = "#/todo";
-                        } 
+                        }
+                        if (index === (users.data.length - 1)) {
+                            if (!$scope.model2.authOk) {
+                                alert('Unauthorized');
+                            }
+                        }
                     }
+
                 },
                 function(error) {
                     $log.error('An error ocurred', error);

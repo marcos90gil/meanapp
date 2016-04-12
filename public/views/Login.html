@@ -1,6 +1,6 @@
 <div class="login-box" ng-controller="LoginController">
     <div class="container">
-        <h1>To-Do App</h1>
+        <h1>TO-DO App</h1>
         <div class="row">
             <h3>
             	Sign up to create an acount.
@@ -8,19 +8,19 @@
             <form name="signupForm" ng-submit="singupUser()" novalidate>
                 <div class="form-group">
                     <div class="input-group">
-                        <input class="form-control" placeholder="Email" type="email" ng-model="model.email" required>
+                        <input class="form-control" id="margin-bottom" placeholder="Email" type="email" ng-model="model.email" required>
                         <div class="text-danger" ng-show="signupForm.email.$dirty && signupForm.email.$error.required">
                             The email is required
                         </div>
                     </div>
                     <div class="input-group">
-                        <input class="form-control" placeholder="Username" type="text" ng-model="model.username" required>
+                        <input class="form-control" id="margin-bottom" placeholder="Username" type="text" ng-model="model.username" required>
                         <div class="text-danger" ng-show="signupForm.username.$dirty && signupForm.username.$error.required">
                             The username is required
                         </div>
                     </div>
                     <div class="input-group">
-                        <input class="form-control" placeholder="Password" type="password" ng-model="model.password" required>
+                        <input class="form-control" id="margin-bottom" placeholder="Password" type="password" ng-model="model.password" required>
                         <div class="text-danger" ng-show="signupForm.password.$dirty && signupForm.password.$error.required">
                             The password is required
                         </div>
@@ -36,13 +36,13 @@
             <form name="loginForm" ng-submit="loginUser()" novalidate>
                 <div class="form-group">
                     <div class="input-group">
-                        <input class="form-control" placeholder="Username" type="text" ng-model="model2.username" required>
+                        <input class="form-control" id="margin-bottom" placeholder="Username" type="text" ng-model="model2.username" required>
                         <div class="text-danger" ng-show="loginForm.username.$dirty && loginForm.username.$error.required">
                             The username is required
                         </div>
                     </div>
                     <div class="input-group">
-                        <input class="form-control" placeholder="Password" type="password" ng-model="model2.password" required>
+                        <input class="form-control" id="margin-bottom" placeholder="Password" type="password" ng-model="model2.password" required>
                         <div class="text-danger" ng-show="loginForm.password.$dirty && loginForm.password.$error.required">
                             The password is required
                         </div>
