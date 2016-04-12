@@ -1,10 +1,13 @@
 # MEANAPP
 
-:part_alternation_mark: Basic API REST developed with the MEANJS stack
+:part_alternation_mark: Main features of a TO-DO basic app
+Basic API REST developed with the MEANJS stack
 * MongoDB
 * Express
 * AngularJS
 * NodeJS
+
+
 
 # Changelog
 
@@ -15,6 +18,10 @@
 ### V.0.1.1 - 2016-04-05
 
 * Basic estructure of a MEANJS app, included task automation with Grunt, Bootstrap framework for styles and Animate.css for animations
+
+### V.0.2.0 - 2016-04-12
+
+* Finished basic features of the app
 
 # APP INIT
 

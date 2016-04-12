@@ -1,13 +1,14 @@
 {
   "name": "meanapp",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "https://github.com/marcos90gil/meanapp",
   "authors": "Marcos Gil <marcos_gilf@hotmail.com>",
   "description": "Basic API REST developed with the MEANJS stack",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "initDB": "node ./config/initDB.js"
+    "initDB-users": "node ./config/initDB-users.js",
+    "initDB-items": "node ./config/initDB-items.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

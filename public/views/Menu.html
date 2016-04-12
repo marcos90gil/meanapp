@@ -1,0 +1,36 @@
+<div class="navbar-fixed-top" ng-controller="MenuController">
+    <nav class="navbar navbar-default hidden-sm hidden-md hidden-lg" id="navbar-color">
+        <ul class="nav navbar-nav" id="display-horizontal">
+            <li ng-class="getClassForItem(paths.url.todo)">
+                <a class="btn btn-default" href="#{{::paths.url.todo}}">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+            </li>
+            <li ng-class="getClassForItem(paths.url.home)">
+                <a class="btn btn-default" href="#{{::paths.url.home}}">
+                    <i class="glyphicon glyphicon-log-out"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav class="navbar navbar-default hidden-xs" id="navbar-color">
+        <div class="container-fluid">            
+            <ul class="nav navbar-nav">
+                <li ng-class="getClassForItem(paths.url.todo)">
+                    <a href="#{{::paths.url.todo}}" class="brand-title" ng-click="logoutUser()">
+                        {{::paths.titles.todo}}
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                </li>
+                <li ng-class="getClassForItem(paths.url.home)">
+                <a href="#{{::paths.url.home}}" ng-click="logoutUser()">
+                    Log out 
+                    <i class="glyphicon glyphicon-log-out"></i>
+                </a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>

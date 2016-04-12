@@ -8,36 +8,29 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-// web routes
-let routes = require('./routes/index');
-let users = require('./routes/users');
-
 // mongoose connection
 let db = require('./config/connectMongoose.js');
 
 // api v1 routes
 let apiUsers = require('./routes/api/v1/users.js');
+let apiTextItems = require('./routes/api/v1/textItems.js');
 
 // express app
 let app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// urls generation
-app.use('/', routes);
-app.use('/users', users);
-// api v1
+// urls generation api v1
 app.use('/apiv1/users', apiUsers);
+app.use('/apiv1/textItems', apiTextItems);
+app.get('*', function(req, res) {
+    res.sendfile('../../../public/index.htmls');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,15 +2,15 @@
 
 let express = require('express');
 let router = express.Router();
-let User = require('../../../models/users_model.js');
+let TextItem = require('../../../models/textItems_model.js');
 
-// routes restful for users
+// routes restful for text items
 router.route('/')
 	
-	/* GET request to all the users in db  */
+	/* GET request to all the text items in db  */
 	.get(function(req, res) {
 		
-		User.find(function(err, data) {
+		TextItem.find(function(err, data) {
 			if (err) {
 				return res.json({ result: false, error: err });
 			}
@@ -19,12 +19,12 @@ router.route('/')
 			
 	})
 
-	/* POST request save user  */
+	/* POST request save text items  */
 	.post(function(req, res) {
 
-		let user = new User(req.body);
+		let textItem = new TextItem(req.body);
 
-		user.save(function(err, data) {
+		textItem.save(function(err, data) {
 			if (err) {
 				return res.json({ result: false, error: err });
 			}
@@ -33,10 +33,10 @@ router.route('/')
 
 	})
 
-	/* DELETE request to reset the users */
+	/* DELETE request to reset the text items */
 	.delete(function(req, res) {
 		
-		User.remove(function(err) {
+		TextItem.remove(function(err) {
 			if (err) {
 				return res.json({ result: false, error: err });
 			}
@@ -48,9 +48,9 @@ router.route('/')
 // routes restful with parameters
 router.route('/:id')
 
-	/* GET request for user by id  */
+	/* GET request for text items by id  */
 	.get(function(req, res) {
-		User.findById(req.params.id, function(err, data) {
+		TextItem.findById(req.params.id, function(err, data) {
 			if (err) {
 				return res.json({ result: false, error: err });
 			}
@@ -59,10 +59,10 @@ router.route('/:id')
 
 	})
 
-	/* PUT request for editing a user by id  */
+	/* PUT request for editing a text item by id  */
 	.put(function(req, res) {
 		let options = {};
-		User.update({ _id: req.params.id }, { $set: req.body }, options, 
+		TextItem.update({ _id: req.params.id }, { $set: req.body }, options, 
 			function(err, data) {
 				if (err) {
 					return res.json({ result: false, error: err });
@@ -73,9 +73,9 @@ router.route('/:id')
 
 	})
 
-	/* DELETE request to remove an specific user */
+	/* DELETE request to remove an specific text item */
 	.delete(function(req, res) {
-		User.remove({
+		TextItem.remove({
 			_id: req.params.id
 			}, function(err) {
 				if (err) {

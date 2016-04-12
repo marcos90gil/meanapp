@@ -1,0 +1,55 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<div class="col-xs-10" id="item-input-box">
+				<div class="input-group">
+					<span class="input-group-addon" id="search-addon">
+						<i class="glyphicon glyphicon-search"></i>
+					</span>
+					<input type="search" ng-model="query.title" placeholder="Search..." class="form-control" aria-describedby="search-addon">
+				</div>					
+			</div>		
+			<div class="col-xs-2" id="item-input-button">
+				<button ng-click="deleteAll()" type="button" class="btn btn-danger btn-sm hidden-sm hidden-md hidden-lg">
+					All
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+				<button ng-click="deleteAll()" type="button" class="btn btn-danger hidden-xs">
+					All
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+			</div>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="model in model | filter:query">
+			<td class="col-xs-10">
+				{{::model.title}}
+				<span class="label label-default">
+					{{::model.upload_date | ago}}
+				</span>
+				<span class="label label-success" ng-show="model.done">
+					Done
+				</span>
+			</td>
+			<td class="table-right-element col-xs-1">
+				<button ng-click="changeItemState({ itemId: model._id })" type="button" class="btn btn-info btn-sm hidden-sm hidden-md hidden-lg">
+					<i class="glyphicon glyphicon-ok" ng-show="!model.done"></i>
+					<i class="glyphicon glyphicon-minus" ng-show="model.done"></i>
+				</button>
+				<button ng-click="changeItemState({ itemId: model._id })" type="button" class="btn btn-info hidden-xs">
+					<i class="glyphicon glyphicon-ok" ng-show="!model.done"></i>
+					<i class="glyphicon glyphicon-minus" ng-show="model.done"></i>
+				</button>
+			</td>
+			<td class="table-right-element col-xs-1">
+				<button ng-click="deleteItem({ itemId: model._id })" type="button" class="btn btn-danger btn-sm hidden-sm hidden-md hidden-lg">
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+				<button ng-click="deleteItem({ itemId: model._id })" type="button" class="btn btn-danger hidden-xs">
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
