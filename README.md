@@ -25,7 +25,10 @@ Basic API REST developed with the MEANJS stack
 
 # APP INIT
 
-* To init de user db run: `$ npm run initDB`
+* Download the project folder or clone the repository
+* Install dependencies with `$ npm install` and `$ bower install`
+* To init de user db run: `$ npm run initDB-users`
+* To init de items db run: `$ npm run initDB-items`
 
 # APP RUN
 
