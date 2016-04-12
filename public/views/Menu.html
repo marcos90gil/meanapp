@@ -7,7 +7,7 @@
                 </a>
             </li>
             <li ng-class="getClassForItem(paths.url.home)">
-                <a class="btn btn-default" href="#{{::paths.url.home}}">
+                <a class="btn btn-default" href="#{{::paths.url.home}}"  ng-click="logoutUser()">
                     <i class="glyphicon glyphicon-log-out"></i>
                 </a>
             </li>
@@ -18,15 +18,13 @@
         <div class="container-fluid">            
             <ul class="nav navbar-nav">
                 <li ng-class="getClassForItem(paths.url.todo)">
-                    <a href="#{{::paths.url.todo}}" class="brand-title" ng-click="logoutUser()">
+                    <a href="#{{::paths.url.todo}}">
                         {{::paths.titles.todo}}
-                        <i class="glyphicon glyphicon-pencil"></i>
                     </a>
                 </li>
                 <li ng-class="getClassForItem(paths.url.home)">
                 <a href="#{{::paths.url.home}}" ng-click="logoutUser()">
                     Log out 
-                    <i class="glyphicon glyphicon-log-out"></i>
                 </a>
             </li>
             </ul>
